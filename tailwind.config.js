@@ -20,8 +20,8 @@ module.exports = {
         'raaz-muted': '#8b8aab',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        mono: ['JetBrains Mono', 'Consolas', 'monospace'],
+        sans: ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-mono)', 'JetBrains Mono', 'Consolas', 'monospace'],
       },
       animation: {
         'pulse-dot': 'pulse-dot 1.4s ease-in-out infinite',
