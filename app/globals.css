@@ -1,0 +1,356 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── CSS Variables ──────────────────────────────────────────────────────── */
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #111118;
+  --bg-surface: #16161f;
+  --bg-elevated: #1e1e2a;
+  --border: #2a2a3a;
+  --border-subtle: #1f1f2e;
+  --violet: #7c3aed;
+  --violet-light: #9f67f0;
+  --violet-glow: rgba(124, 58, 237, 0.25);
+  --purple: #a855f7;
+  --text-primary: #e2e0f0;
+  --text-secondary: #a09fc0;
+  --text-muted: #6b698a;
+  --success: #10b981;
+  --error: #ef4444;
+  --warning: #f59e0b;
+  --scrollbar-width: 4px;
+}
+
+/* ─── Base Reset ──────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ─── Scrollbar Styling ───────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+  height: var(--scrollbar-width);
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--violet);
+}
+
+/* ─── Selection ───────────────────────────────────────────────────────────── */
+::selection {
+  background: rgba(124, 58, 237, 0.35);
+  color: var(--text-primary);
+}
+
+/* ─── Focus styles ────────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--violet);
+  outline-offset: 2px;
+}
+
+/* ─── Typography for Markdown prose ──────────────────────────────────────── */
+.prose-raaz {
+  color: var(--text-primary);
+  line-height: 1.75;
+  word-break: break-word;
+}
+
+.prose-raaz h1,
+.prose-raaz h2,
+.prose-raaz h3,
+.prose-raaz h4 {
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-top: 1.25em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+.prose-raaz h1 { font-size: 1.375rem; }
+.prose-raaz h2 { font-size: 1.2rem; }
+.prose-raaz h3 { font-size: 1.05rem; }
+
+.prose-raaz p {
+  margin-bottom: 0.75em;
+}
+
+.prose-raaz p:last-child {
+  margin-bottom: 0;
+}
+
+.prose-raaz ul,
+.prose-raaz ol {
+  margin: 0.5em 0 0.75em 1.25em;
+  padding: 0;
+}
+
+.prose-raaz ul { list-style: disc; }
+.prose-raaz ol { list-style: decimal; }
+
+.prose-raaz li {
+  margin-bottom: 0.3em;
+}
+
+.prose-raaz li::marker {
+  color: var(--violet-light);
+}
+
+.prose-raaz strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.prose-raaz em {
+  color: var(--text-secondary);
+}
+
+.prose-raaz a {
+  color: var(--violet-light);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.prose-raaz a:hover {
+  color: var(--purple);
+}
+
+.prose-raaz blockquote {
+  border-left: 3px solid var(--violet);
+  padding-left: 1em;
+  margin: 0.75em 0;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.prose-raaz code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85em;
+  background: rgba(124, 58, 237, 0.15);
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  border-radius: 4px;
+  padding: 0.15em 0.4em;
+  color: #c084fc;
+}
+
+.prose-raaz pre {
+  background: #0d0d14;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1em 1.25em;
+  overflow-x: auto;
+  margin: 0.75em 0;
+  position: relative;
+}
+
+.prose-raaz pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: 0.875rem;
+  color: #e2e0f0;
+  line-height: 1.65;
+}
+
+.prose-raaz table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.75em 0;
+  font-size: 0.9rem;
+}
+
+.prose-raaz th {
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  font-weight: 600;
+  text-align: left;
+  padding: 0.5em 0.75em;
+  border: 1px solid var(--border);
+}
+
+.prose-raaz td {
+  padding: 0.5em 0.75em;
+  border: 1px solid var(--border-subtle);
+}
+
+.prose-raaz tr:nth-child(even) td {
+  background: var(--bg-surface);
+}
+
+.prose-raaz hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 1.25em 0;
+}
+
+/* ─── Component Utilities ─────────────────────────────────────────────────── */
+.glass {
+  background: rgba(22, 22, 31, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+}
+
+.glass-elevated {
+  background: rgba(30, 30, 42, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+}
+
+.glow-violet {
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.3), 0 0 40px rgba(124, 58, 237, 0.1);
+}
+
+.glow-violet-sm {
+  box-shadow: 0 0 10px rgba(124, 58, 237, 0.25);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #9f67f0, #ec4899, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-subtle {
+  background: linear-gradient(135deg, #e2e0f0 0%, #9f67f0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Typing indicator dots ───────────────────────────────────────────────── */
+.typing-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--violet-light);
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse-dot 1.4s ease-in-out infinite;
+}
+
+.typing-dot:nth-child(1) { animation-delay: 0s; }
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes pulse-dot {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+  40%           { transform: scale(1);   opacity: 1; }
+}
+
+/* ─── Message animations ──────────────────────────────────────────────────── */
+.message-enter {
+  animation: fadeInUp 0.28s ease-out;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Sidebar transition ──────────────────────────────────────────────────── */
+.sidebar-transition {
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─── Input glow on focus ─────────────────────────────────────────────────── */
+.input-glow:focus-within {
+  box-shadow: 0 0 0 1px var(--violet), 0 0 20px rgba(124, 58, 237, 0.2);
+}
+
+/* ─── Button press effect ─────────────────────────────────────────────────── */
+.btn-press {
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.btn-press:active {
+  transform: scale(0.97);
+}
+
+/* ─── Gradient border ─────────────────────────────────────────────────────── */
+.gradient-border {
+  position: relative;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, #7c3aed, #ec4899);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ─── Shimmer loading ─────────────────────────────────────────────────────── */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--bg-surface) 25%,
+    var(--bg-elevated) 50%,
+    var(--bg-surface) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+/* ─── Sidebar overlay for mobile ─────────────────────────────────────────── */
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+  z-index: 40;
+}
+
+/* ─── Mode chip active ring ───────────────────────────────────────────────── */
+.mode-active {
+  box-shadow: 0 0 0 2px var(--violet), 0 0 12px rgba(124, 58, 237, 0.4);
+}
+
+/* ─── Scrollable chat area ────────────────────────────────────────────────── */
+.chat-scroll {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* ─── Hide scrollbar on chat for a cleaner look (but still scrollable) ──── */
+.chat-scroll::-webkit-scrollbar {
+  width: 3px;
+}
