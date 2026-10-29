@@ -54,7 +54,7 @@ Edit `.env.local` and fill in your key:
 
 ```env
 GEMINI_API_KEY=AIza...your_real_key_here
-GEMINI_MODEL=gemini-1.5-flash
+GEMINI_MODEL=gemini-3.5-flash-lite
 ```
 
 > **Never commit `.env.local`** — it is in `.gitignore`.
@@ -91,7 +91,7 @@ vercel
 
 Follow the prompts. When asked about environment variables, add:
 - `GEMINI_API_KEY` → your API key
-- `GEMINI_MODEL` → `gemini-1.5-flash` (or your preferred model)
+- `GEMINI_MODEL` → `gemini-3.5-flash-lite` (or your preferred model)
 
 ### Option B — Vercel Dashboard
 
@@ -99,7 +99,7 @@ Follow the prompts. When asked about environment variables, add:
 2. Import the repository at [vercel.com/new](https://vercel.com/new).
 3. In **Settings → Environment Variables**, add:
    - `GEMINI_API_KEY` = your key
-   - `GEMINI_MODEL` = `gemini-1.5-flash`
+   - `GEMINI_MODEL` = `gemini-3.5-flash-lite`
 4. Click **Deploy**.
 
 > ⚠️ Never add real API keys to `.env.example` or any committed file.

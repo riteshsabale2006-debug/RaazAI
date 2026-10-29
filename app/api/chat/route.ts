@@ -149,7 +149,7 @@ export async function POST(req: NextRequest) {
 
   // Build Gemini client
   const genAI = new GoogleGenerativeAI(apiKey);
-  const modelName = process.env.GEMINI_MODEL ?? 'gemini-2.0-flash-lite';
+  const modelName = process.env.GEMINI_MODEL ?? 'gemini-3.5-flash-lite';
 
   // ─── Retry loop (503 UNAVAILABLE only) ───────────────────────────────────────
   let lastError: unknown = null;
